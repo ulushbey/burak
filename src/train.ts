@@ -1,8 +1,11 @@
-//MIT Task H
+// MIT TASK H
 
-function getReverse(str: string): string {
-    return str.split('').reverse().join('');
-}
+function getPositive(arr: number[]) : string {
+    const a: number[] = arr.filter(num => num > 0);  
+    return a.join('');
+  }
+  
+  
+  console.log(getPositive([1, -4, 2, ])); 
+  
 
-console.log(getReverse("hello")); 
-console.log(getReverse("jacob"));  
