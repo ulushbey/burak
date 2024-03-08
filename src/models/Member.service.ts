@@ -2,7 +2,7 @@ import MemberModel from "../schema/Member.model";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
-import * as bycrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs";
 
 
 class MemberService {
@@ -15,8 +15,8 @@ class MemberService {
     /** SPA */
 
     public async signup(input: MemberInput): Promise<Member> {
-        const salt = await bycrypt.genSalt();
-        input.memberPassword = await bycrypt.hash(input.memberPassword, salt);
+        const salt = await bcrypt.genSalt();
+        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
         
     
         try {
@@ -38,7 +38,7 @@ class MemberService {
         .exec();
         if(!member) throw new Errors (HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
-        const isMatch = await bycrypt.compare(
+        const isMatch = await bcrypt.compare(
             input.memberPassword, 
             member.memberPassword);
 
@@ -60,8 +60,8 @@ class MemberService {
         if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
 
-        const salt = await bycrypt.genSalt();
-        input.memberPassword = await bycrypt.hash(input.memberPassword, salt);
+        const salt = await bcrypt.genSalt();
+        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
         try {
         const result = await this.memberModel.create(input );
@@ -80,7 +80,7 @@ class MemberService {
         .exec();
         if(!member) throw new Errors (HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
-        const isMatch = await bycrypt.compare(input.memberPassword, member.memberPassword);
+        const isMatch = await bcrypt.compare(input.memberPassword, member.memberPassword);
 
         // const isMatch = input.memberPassword === member.memberPassword;
 

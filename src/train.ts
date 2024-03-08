@@ -1,15 +1,16 @@
-//MIT TASK I
+//MIT TASK J
 
-function getDigits(str: string): string {
-    let a: string = '';
-
-    for (let i: number = 0; i < str.length; i++) {
-        if (!isNaN(Number(str[i]))) {
-            a += str[i];
+function findLongestWord(str: string): string {
+    const words: string[] = str.split(' ');
+    const longestWord: string = words.reduce((longest: string, currentWord: string) => {
+        if (currentWord.length > longest.length) {
+            return currentWord;
+        } else {
+            return longest;
         }
-    }
+    }, '');
 
-    return a;
+    return longestWord;
 }
 
-console.log(getDigits("m14i1td"));
+console.log(findLongestWord("I come from Uzbekistan ackjnckjncknakcndskcjnsjk"));
