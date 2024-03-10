@@ -1,16 +1,11 @@
-//MIT TASK J
+//MIT TASK K
 
-function findLongestWord(str: string): string {
-    const words: string[] = str.split(' ');
-    const longestWord: string = words.reduce((longest: string, currentWord: string) => {
-        if (currentWord.length > longest.length) {
-            return currentWord;
-        } else {
-            return longest;
-        }
-    }, '');
-
-    return longestWord;
+function countVowels(str: string): number {
+    str = str.toLowerCase();
+    const vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
+    const vowelArray : string[] = str.split('').filter(x  => vowels.includes(x));
+    return vowelArray.length;
 }
 
-console.log(findLongestWord("I come from Uzbekistan ackjnckjncknakcndskcjnsjk"));
+console.log(countVowels("Ulugbek")); 
+
