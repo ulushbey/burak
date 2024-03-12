@@ -1,11 +1,13 @@
-//MIT TASK K
+//MIT TASK L
 
-function countVowels(str: string): number {
-    str = str.toLowerCase();
-    const vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
-    const vowelArray : string[] = str.split('').filter(x  => vowels.includes(x));
-    return vowelArray.length;
+function reverseSentence(str: string): string {
+    const words = str.split(" ");
+    const reversedSentence = words.map(word => {
+      return word.split("").reverse().join("");
+    }).join(" ");
+
+    return reversedSentence;
 }
 
-console.log(countVowels("Ulugbek")); 
-
+const reversed = reverseSentence("we like coding!");
+console.log(reversed);
