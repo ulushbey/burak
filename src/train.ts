@@ -1,13 +1,13 @@
-//MIT TASK L
+//MIT TASK M
 
-function reverseSentence(str: string): string {
-    const words = str.split(" ");
-    const reversedSentence = words.map(word => {
-      return word.split("").reverse().join("");
-    }).join(" ");
-
-    return reversedSentence;
+function getSquareNumbers(numbers : number[]) : {number : number, square : number }[] {
+  return numbers.map(number => {
+      return {
+        
+          number: number,
+          square: number * number
+      };
+  });
 }
 
-const reversed = reverseSentence("we like coding!");
-console.log(reversed);
+console.log(getSquareNumbers([1, 2, 3])); 
