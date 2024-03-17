@@ -1,13 +1,10 @@
-//MIT TASK M
+//MIT TASK N
 
-function getSquareNumbers(numbers : number[]) : {number : number, square : number }[] {
-  return numbers.map(number => {
-      return {
-        
-          number: number,
-          square: number * number
-      };
-  });
+function palindromeCheck(str : string) : boolean {
+  const x = str.split('');
+  const matches = x.map((ele, index) => ele === x[x.length - 1 - index]);
+  return !matches.includes(false);
 }
 
-console.log(getSquareNumbers([1, 2, 3])); 
+console.log(palindromeCheck("dad"));     
+console.log(palindromeCheck("son")); 
