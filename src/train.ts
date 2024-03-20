@@ -1,10 +1,14 @@
-//MIT TASK N
+//MIT TASK O
 
-function palindromeCheck(str : string) : boolean {
-  const x = str.split('');
-  const matches = x.map((ele, index) => ele === x[x.length - 1 - index]);
-  return !matches.includes(false);
+function calculateSumOfNumbers(arr: (number | string | { number: number } | boolean)[]): number {
+  let sum = 0;
+  arr.map(value => {
+      if (typeof value === 'number') {
+          sum += value;
+      }
+  });
+  return sum;
 }
 
-console.log(palindromeCheck("dad"));     
-console.log(palindromeCheck("son")); 
+const result= calculateSumOfNumbers([10, "10", { number: 10 }, true, 35]);
+console.log(result); 
