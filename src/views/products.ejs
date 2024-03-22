@@ -44,24 +44,24 @@
               </tr>
             </thead>
             <!--  LOOP PRODUCTS: START  -->
-            <% products.map(function(value, key){ %>
+            <% products.map(function(value, key) { %>
               <tbody style="background: white">
-                <td><%= key + 1 %></td>
+                <td><%= key +1 %></td>
                 <td><%= value.productName %></td>
                 <td><%= value.productCollection %></td>
-                <td><%= value.productCollection === 'DRINK' ? value.productVolume : value.productSize  %></td>
+                <td><%= value.productCollection === 'DRINK' ? value.productVolume : value.productSize %></td>
                 <td><%= value.productPrice %></td>
                 <td><%= value.productLeftCount %></td>
                 <td>
-                  <select class="spec-select new-product-status" id="<%= value._id %>">
-                    <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected' : '' %> >PAUSE</option>
-                    <option value="PROCESS" <%= value.productStatus === 'PROCESS' ? 'selected' : '' %> >PROCESS</option>
-                    <option value="DELETE" <%= value.productStatus === 'DELETE' ? 'selected' : '' %> >DELETE</option>
+                  <select class="spec-select new-product-status" id="<%= value._id%>">
+                    <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
+                    <option value="PROCESS" <%= value.productStatus === 'PROCESS' ? 'selected' : '' %>>PROCESS</option>
+                    <option value="DELETE" <%= value.productStatus === 'DELETE' ? 'selected' : '' %>> DELETE</option>
                   </select>
                 </td>
               </tbody>
-            <% })%>
-            
+           <% }) %>
+           
             <!--  LOOP PRODUCTS: END  -->
           </table>
           <div
@@ -73,7 +73,9 @@
             </button>
           </div>
         </div>
+
         <form
+        onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -122,7 +124,7 @@
           <div class="half-input-frame">
             <div class="half-input">
               <label>Product Type</label>
-              <select class="product-collection" name="productCollection">
+              <select class="product-collection" name="productCollection" >
                 <option value="DISH" selected>Dish</option>
                 <option value="SALAD">Salad</option>
                 <option value="DESSERT">Dessert</option>
@@ -168,6 +170,7 @@
                   name="productImages"
                   class="image-one"
                   required
+                  onchange="previewFileHandler(this, 1)"
                 />
               </div>
               <div class="upload-img-box">
@@ -177,7 +180,8 @@
                   id="file"
                   name="productImages"
                   class="image-two"
-                />
+                  onchange="previewFileHandler(this, 2)"
+                    />
               </div>
               <div class="upload-img-box">
                 <img src="/img/upload.svg" class="3" id="image-section-3" />
@@ -186,6 +190,8 @@
                   id="file"
                   name="productImages"
                   class="image-three"
+                  onchange="previewFileHandler(this, 3)"
+
                 />
               </div>
               <div class="upload-img-box">
@@ -195,6 +201,8 @@
                   id="file"
                   name="productImages"
                   class="image-four"
+                  onchange="previewFileHandler(this, 4)"
+
                 />
               </div>
               <div class="upload-img-box">
@@ -204,6 +212,8 @@
                   id="file"
                   name="productImages"
                   class="image-five"
+                  onchange="previewFileHandler(this, 5)"
+
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
