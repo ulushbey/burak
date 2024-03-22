@@ -38,7 +38,7 @@ $(function () {
         console.log("Error, productStatus",err);
         alert("Product update failed!");
         }
-      })
+      });
 });
 
 
