@@ -3,13 +3,8 @@ console.log("Users frontend javascript file");
 
 $(function() {
     $(".member-status").on("change", function(e) {
-        const id = e.target.id;
-        console.log("id:", id);
-
-
-        const meberStatus = $(`#${id}.member-status`).val();
-        console.log("meberStatus:", meberStatus);
-
+        const id = e.target.id,
+         meberStatus = $(`#${id}.member-status`).val();
         //TODO UpdateChosenUser
         axios.post("/admin/user/edit", {
             _id: id,
@@ -21,7 +16,6 @@ $(function() {
 
 
             if(result.data){
-                console.log("User updated!");
                 $(".member-status").blur();
             } else alert("User update failed!");
         })
