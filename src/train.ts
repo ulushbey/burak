@@ -1,14 +1,6 @@
-//MIT TASK O
-
-function calculateSumOfNumbers(arr: (number | string | { number: number } | boolean)[]): number {
-  let sum = 0;
-  arr.map(value => {
-      if (typeof value === 'number') {
-          sum += value;
-      }
-  });
-  return sum;
+//MIT TASK P
+function objectToArray(obj : any) {
+  return Object.keys(obj).map(key => [key, obj[key]]);
 }
 
-const result= calculateSumOfNumbers([10, "10", { number: 10 }, true, 35]);
-console.log(result); 
+console.log(objectToArray({ a: 10, b: 20 }));
