@@ -1,6 +1,9 @@
-//MIT TASK P
-function objectToArray(obj : any) {
-  return Object.keys(obj).map(key => [key, obj[key]]);
+//MIT TASK Q
+function hasProperty(obj: object, prop: string): boolean {
+  return prop in obj;
 }
 
-console.log(objectToArray({ a: 10, b: 20 }));
+
+console.log(hasProperty({name: "BMW", model: "M3"}, "model")); 
+console.log(hasProperty({name: "BMW", model: "M3"}, "year"));  
+
