@@ -1,9 +1,10 @@
-//MIT TASK Q
-function hasProperty(obj: object, prop: string): boolean {
-  return prop in obj;
+//MIT TASK R
+function calculate(str : string) : number {
+  const parts = str.split('+');
+  const result = parts.reduce((acc, num) => acc + Number(num), 0);
+  return result;
 }
 
+console.log(calculate("1+3"));
 
-console.log(hasProperty({name: "BMW", model: "M3"}, "model")); 
-console.log(hasProperty({name: "BMW", model: "M3"}, "year"));  
 
